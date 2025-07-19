@@ -1,0 +1,316 @@
+/* Table of Content */
+.contentdesigner-content .contentdesigner-wrapper {
+    .course-content-list .topinstance .toc-block.fixed-top .toc-list-block .toc-chapter-block {
+        .toc-chapters .toc-chapter-content i {
+            font-size: 12px;
+            font-family: var(--fa-style-family, "Font Awesome 6 Free", fontawesome);
+            font-weight: var(--fa-style, 400);
+        }
+    }
+
+    .course-content-list {
+        .topinstance {
+
+            /* Sticky content */
+            .toc-block.fixed-top {
+                top: 60px;
+                z-index: 1;
+
+                .general-options .background-options {
+                    display: none;
+                }
+
+                .element-tableofcontents {
+                    border-radius: 0;
+                }
+
+                .toc-list-block {
+                    max-width: 830px;
+
+                    .toc-mod-title-block {
+                        margin-bottom: 0;
+
+                        h3 {
+                            font-size: 18px;
+                            text-align: left;
+                            margin-bottom: 5px;
+                        }
+                    }
+
+                    .toc-intro-block {
+                        display: none;
+                    }
+
+                    /* TOC chapter block */
+                    .toc-chapter-block {
+                        margin-top: 0;
+
+                        .toc-chapters {
+                            display: flex;
+                            align-items: self-start;
+
+                            .toc-chapter-content {
+                                width: 100%;
+                                border-bottom: 0;
+                                padding-bottom: 0;
+                                margin-bottom: 0;
+                                margin-right: 15px;
+                                flex-wrap: wrap;
+
+                                .toc-chapter-title {
+                                    h5 {
+                                        font-size: 14px;
+                                    }
+
+                                    &.hideonsticky + i {
+                                        margin: 0 auto;
+                                    }
+                                }
+
+                                /* TOC Progress bar */
+                                .toc-progressbar {
+                                    width: 100%;
+                                    display: flex;
+
+                                    .toc-chapter {
+                                        width: 100%;
+                                        margin-right: 2px;
+
+                                        label {
+                                            width: 100%;
+                                            height: 5px;
+                                            background-color: #dadada;
+
+                                            &.label-bg-success {
+                                                background-color: #28a745;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                /* TOC Progress bar */
+                            }
+                        }
+                    }
+
+                    /* TOC chapter block */
+                }
+            }
+
+            /* End of Sticky content */
+        }
+    }
+
+    .course-content-list {
+        list-style: none;
+
+        .element-item {
+            margin-bottom: 15px;
+            list-style: none;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+
+            li::marker {
+                list-style: none;
+            }
+        }
+
+        /* TOC block */
+        .toc-block {
+            &:not(.fixed-top) .general-options {
+                position: relative;
+                z-index: 0;
+
+                &.backcolor,
+                &.backimage {
+                    .background-options {
+                        width: 100%;
+                        height: 300px;
+                        position: absolute;
+                        z-index: 0;
+                    }
+
+                    .background-options > div {
+                        height: 100%;
+                        border-top-left-radius: 15px;
+                        border-top-right-radius: 15px;
+
+                        +.element-tableofcontents {
+                            border-top-left-radius: 0;
+                            border-top-right-radius: 0;
+                        }
+                    }
+
+                    .toc-list-block .toc-mod-title-block {
+                        margin-top: 70px;
+                        margin-bottom: 160px;
+                        position: relative;
+                        z-index: 1;
+
+                        h3 {
+                            background: #fff;
+                            padding: 10px;
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+
+            /* TOC list block */
+            .toc-list-block {
+                max-width: 50%;
+                margin: 0 auto;
+            }
+
+            /* End of TOC list block */
+        }
+
+        /* End of TOC block */
+        /* Chapters block */
+        .topinstance {
+            margin-bottom: 20px;
+
+            &:not(.element-item) ~ .chapters-list {
+                padding: 20px;
+                margin-top: 20px;
+                border-radius: 15px;
+                border: 1px solid #efefef;
+
+                .chapter-title {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        /* End of Chapters block */
+        /* Background options */
+        .background-options {
+            position: relative;
+            z-index: 0;
+
+            >div {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+
+                &.bg-overlay {
+                    z-index: 1;
+                }
+
+                &.bg-image {
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+
+                &.bg-color {
+                    z-index: -1;
+                }
+            }
+        }
+
+        /* End of Background options */
+
+        .element-tableofcontents {
+            text-align: center;
+            border-radius: 15px;
+            background: #f7f8f9;
+            padding: 30px 15px;
+
+            /* Title block */
+            .toc-mod-title-block,
+            .toc-intro-block {
+                margin-bottom: 15px;
+
+                ol {
+                    display: inline-flex;
+                    flex-direction: column;
+                }
+            }
+
+            /* End of Title block */
+
+            /* Chapter listing */
+            .toc-chapter-block {
+                text-align: left;
+                margin-top: 50px;
+
+                .toc-chapters {
+                    padding: 0;
+                    margin: 0;
+
+                    .toc-chapter-content {
+                        list-style: none;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                        padding-bottom: 10px;
+                        margin-bottom: 20px;
+                        display: flex;
+                        align-items: center;
+
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+
+                        .toc-chapter-title {
+                            margin-right: 10px;
+
+                            a {
+                                text-decoration: none;
+
+                                h5 {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            /* End of Chapter listing */
+            /* Action button */
+            .toc-action-block {
+                margin-top: 10px;
+            }
+
+            /* End of Action button */
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .contentdesigner-content .contentdesigner-wrapper .course-content-list .toc-block {
+        &.fixed-top .toc-list-block {
+            .toc-mod-title-block.hideonmobile {
+                display: none;
+            }
+
+            .toc-chapter-block .toc-chapters .toc-chapter-content {
+                .toc-chapter-title.hideonmobile {
+                    display: none;
+
+                    +i {
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+
+        &:not(.fixed-top) .general-options {
+            .toc-list-block {
+                max-width: none;
+            }
+
+            &.backcolor,
+            &.backimage {
+                .toc-list-block .toc-mod-title-block {
+                    margin-top: 90px;
+                }
+            }
+        }
+    }
+}

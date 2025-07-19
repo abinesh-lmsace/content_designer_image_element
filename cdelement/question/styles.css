@@ -1,0 +1,67 @@
+/* Remove the padding from mform for question form */
+.embedded-main .element-question-form {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* Remove border for iframes inside the question element. */
+.element-item.element-question iframe {
+    min-height: max-content;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Hide the scroll bar until the min height is updated tpo the iframe. */
+body#page-mod-contentdesigner-element-question-startattempt {
+    overflow: hidden;
+}
+
+/* Allow option to scroll if needed after the page is loaded. */
+body#page-mod-contentdesigner-element-question-startattempt.loaded {
+    min-height: max-content;
+    padding: 0 15px;
+    overflow: visible;
+    background: none;
+}
+
+.path-mod-contentdesigner {
+    .modal .modal-content .modal-body .elements-list .element-item {
+        .fa-question-circle {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        img.icon {
+            max-width: 20px;
+            max-height: 20px;
+        }
+    }
+}
+
+.contentdesigner-content .contentdesigner-wrapper .course-content-list {
+    .chapter-elements-list .element-item {
+        &.element-question .general-options {
+
+            &.backcolor,
+            &.backimage {
+                padding: 15px 0 0;
+            }
+        }
+
+        .element-box .element-icon .fa-question-circle {
+            font-size: 20px;
+            font-weight: normal;
+        }
+    }
+}
+
+form.element-question-form {
+    table tbody tr:nth-of-type(even) {
+        background-color: transparent;
+    }
+
+    .femptylabel {
+        margin: 0;
+    }
+}

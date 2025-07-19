@@ -1,0 +1,38 @@
+.contentdesigner-content .image-container {
+    margin-bottom: 10px;
+}
+
+/* Display the image in full width of the content */
+.contentdesigner-content .element-image-img {
+    width: 100%;
+}
+
+/* Make the cursor zoom in for image galleyr */
+.contentdesigner-content .element-image-img[data-lightbox="image-gallery"] {
+    cursor: zoom-in;
+}
+
+/* Image caption - added padding on top and bottom */
+.contentdesigner-content .element-image-caption {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.modal-header.modal-lightbox {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    color: #ccc;
+    padding: 0px;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+.modal .modal-header.modal-lightbox .btn-close {
+    margin: 0 4px 0;
+}
+
+.modal-lightbox .modal-body {
+    padding: 0px;
+}

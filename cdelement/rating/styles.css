@@ -1,0 +1,228 @@
+.cdelement-rating {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    text-align: center;
+}
+.cdrating-content {
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.cdrating-block {
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+    position: relative;
+}
+.rating-scale {
+    padding: 10px 0;
+    margin: 0 auto;
+    display: flex;
+}
+.rating-scale-option {
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rating-scale-option span {
+    margin-top: 15px;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item.average span {
+    margin-top: 24px;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item.selected span {
+    margin-top: 19px;
+}
+.cdelement-rating .cdrating-block .rating-scale.numeric-block .rating-item.average.selected span {
+    margin-top: 38px;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item.selected a:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: var(--primary);
+    margin-top: 6px;
+    display: inline-block;
+}
+.cdelement-rating .cdrating-block .rating-scale.numeric-block .rating-item.selected a:before {
+    width: auto;
+}
+.cdelement-rating .cdrating-block .rating-scale.numeric-block .rating-item.selected a {
+    position: relative;
+}
+.cdelement-rating .cdrating-block .rating-scale.numeric-block .rating-item.selected a:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    margin-top: 6px;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item.average a:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background-color: var(--warning);
+    margin-top: 11px;
+    display: inline-block;
+}
+.cdelement-rating .cdrating-block .rating-scale.numeric-block .rating-item.average a:before {
+    width: auto;
+}
+.cdelement-rating .cdrating-block .rating-scale.numeric-block .rating-item.average a {
+    position: relative;
+}
+.cdelement-rating .cdrating-block .rating-scale.numeric-block .rating-item.average a:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background-color: var(--warning);
+    margin-top: 11px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.cdelement-rating .cdrating-block .rating-scale.numeric-block .rating-item.average.selected a:before {
+    width: auto;
+    height: auto;
+    border: 0;
+}
+.cdelement-rating .cdrating-block .rating-scale.numeric-block .rating-item.average.selected a:after {
+    width: 30px;
+    height: 30px;
+    background-color: var(--warning);
+    border: 5px solid var(--primary);
+    margin-top: 0;
+    top: -6px;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item.average.selected a:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    border: 5px solid var(--primary);
+    border-radius: 50%;
+    background-color: var(--warning);
+    margin-top: 6px;
+    display: inline-block;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item .rating-scale-option.average:before {
+    content: '';
+    width: 40px;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    background-color: var(--warning);
+}
+/* .cdelement-rating .cdrating-block .rating-scale .rating-item .rating-scale-option.average {
+    display: none;
+} */
+.rating-result-block {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #666;
+}
+.rating-result {
+    font-weight: bold;
+    color: #222;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item {
+    width: 100%;
+    position: relative;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-.average a:before {
+    border-color: #000;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item a:before {
+    content: "";
+    width: 3px;
+    height: 40px;
+    background-color: #eee;
+    display: inline-block;
+}
+/* .cdelement-rating .cdrating-block .rating-scale:not(.numeric-block) .rating-item a:before {
+    opacity: 0;
+} */
+.cdelement-rating .cdrating-block .rating-scale.numeric-block
+.rating-item:not(.average-numeric):not(.selected):not(.average) a:before {
+    opacity: 0;
+}
+/* .cdelement-rating .cdrating-block .rating-scale .rating-item:before {
+    content: "";
+    width: 4px;
+    height: 40px;
+    position: absolute;
+    background: var(--primary);
+    bottom: auto;
+    left: 20px;
+    top: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+} */
+.cdelement-rating .cdrating-block .rating-scale .rating-item b:before,
+.cdelement-rating .cdrating-block .rating-scale .rating-item.average b:after,
+.cdelement-rating .cdrating-block .rating-scale .rating-item.selected b:after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: #eee;
+    position: absolute;
+    top: 20px;
+    bottom: auto;
+    left: 0;
+    right: auto;
+    z-index: -1;
+}
+.cdelement-rating .cdrating-block .rating-scale:not(.numeric-block) .rating-item.average:not(.selected) b:after {
+    background-color: #000;
+    left: 50%;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item.selected:not(.average) b:after {
+    width: 50%;
+    background-color: #000;
+    left: 50%;
+}
+.cdelement-rating .cdrating-block .rating-scale:not(:has(.average)) .rating-item.selected b:after {
+    background-color: #eee;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item.average ~ .rating-item:has(~ .selected) b:before,
+.cdelement-rating .cdrating-block .rating-scale .rating-item.selected ~ .rating-item:has(~ .average) b:before {
+    background-color: #000;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item.selected ~ .rating-item.average b:after {
+    width: 50%;
+    left: auto;
+    right: 50%;
+}
+.cdelement-rating .cdrating-block .rating-scale .rating-item.average ~ .rating-item.selected b:after {
+    width: 50%;
+    left: auto;
+    right: 50%;
+}
+
+/* .cdelement-rating .cdrating-block .rating-scale:not(.numeric-block) .rating-item.selected ~ .rating-item b:before {
+    background-color: #eee;
+} */
+/*.cdelement-rating .cdrating-block .rating-scale:not(.numeric-block) .rating-item.selected a:before {
+    margin-top: -13px;
+    margin-bottom: 20px;
+} -- lt
+ .cdelement-rating .cdrating-block .rating-scale:not(.numeric-block) .rating-item b:before {
+    top: 0;
+} */

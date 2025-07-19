@@ -1,0 +1,50 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template cdelement_rating/rating
+
+    Template for the rating element.
+
+    Example context (json):
+    {
+
+    }
+}}
+
+<div class="cdelement-rating" data-rateid="{{rateid}}" data-contentdesignerid="{{contentdesignerid}}">
+
+    <div class="cdrating-content-block">
+        {{#content}}<div class="cdrating-content">{{{content}}}</div>{{/content}}
+    </div>
+
+    <div class="cdrating-block">
+        <div class="rating-scale {{ratingtypeclass}}" data-total="{{total}}" data-changerating="{{changerating}}" data-response="{{response}}">
+            {{#scales}}
+            <div class="rating-item {{#numericclass}}{{numericclass}}{{/numericclass}} {{#responseclass}}{{responseclass}}{{/responseclass}}
+                {{#averageclass}}{{averageclass}}{{/averageclass}}" data-value="{{value}}">
+                <a href="javascript:void(0);" class="rating-scale-option" data-value="{{value}}"><span>{{{label}}}</span></a>
+                <b></b>
+            </div>
+            {{/scales}}
+        </div>
+
+        <div class="rating-result-block">
+            <p class="rating-result">{{{result}}}</p>
+        </div>
+    </div>
+
+</div>

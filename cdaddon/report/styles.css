@@ -1,0 +1,36 @@
+/* Container for the progress bar */
+.cd-report-progress-bar-container {
+    display: flex;
+    height: 12px;
+    background-color: #e9ecef;
+    /* Light gray background for the container */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Individual progress bar segments */
+.cd-report-progress-segment {
+    flex: 1;
+    /* Each segment takes equal space */
+}
+
+/* Completed chapter segment style */
+.report-chapter-completed {
+    background-color: #28a745;
+    /* Green color for completed chapters */
+}
+
+/* Incomplete chapter segment style */
+.report-chapter-incomplete {
+    background-color: #dadada;
+    /* Gray color for incomplete chapters */
+}
+
+/* Label below the progress bar */
+.cd-report-progress-label {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+    /* Darker text for better readability */
+}

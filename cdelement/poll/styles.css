@@ -1,0 +1,33 @@
+.contentdesigner-content .element-item {
+    .poll-section {
+        margin-bottom: 20px;
+    }
+
+    .general-options {
+        form ul.poll-options {
+            display: flex;
+            align-items: center;
+            flex-flow: wrap;
+
+            /** Center the submit button the element poll.*/
+            +.btn {
+                margin: 10px auto;
+                display: block;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .contentdesigner-content .element-item .general-options .chart-area .chart-image {
+        width: 100%;
+    }
+}
+
+.contentdesigner-content .element-item .general-options .resultarea.show {
+    height: 350px;
+}
+
+.contentdesigner-content .element-item .general-options .chart-area .chart-image {
+    height: 100%;
+}

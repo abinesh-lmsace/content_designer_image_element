@@ -1,0 +1,80 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template cdelement_tableofcontents/tableofcontents
+
+    Template for the tableofcontents completion tableofcontents
+
+    Example context (json):
+    {
+
+    }
+}}
+
+<div class="element-tableofcontents {{stickyclass}}">
+    <div class="toc-list-block">
+        {{#modname}}
+        <div class="toc-mod-title-block {{modtitlehideclass}}">
+            <h3>{{modname}}</h3>
+        </div>
+        {{/modname}}
+
+        {{#intro}}
+        <div class="toc-intro-block">
+            {{{intro}}}
+        </div>
+        {{/intro}}
+
+        {{#chapterblock}}
+        <div class="toc-chapter-block">
+            <ul class="toc-chapters">
+                {{#chapters}}
+                    <li class="toc-chapter-content {{#completed}} text-success {{/completed}}">
+                        {{#chapterstate}}
+                        <div class="toc-progressbar d-none">
+                            <div class="toc-chapter {{#completed}} chapter-completed{{/completed}}" data-chapter="{{id}}">
+                                <label class="{{#completed}}label-bg-success{{/completed}}"></label>
+                            </div>
+                        </div>
+                        {{/chapterstate}}
+                        {{#title}}
+                            <div class="toc-chapter-title {{titlehideclass}} ">
+                                <a href="javascript:void(0);">
+                                    <h5 class="{{#completed}} text-success {{/completed}}" data-chapter={{id}}>{{title}}</h5>
+                                </a>
+                            </div>
+                        {{/title}}
+                        {{#completed}}
+                            <i class="fa fa-check-circle"></i>
+                        {{/completed}}
+                    </li>
+                {{/chapters}}
+            </ul>
+        </div>
+        {{/chapterblock}}
+
+        {{#actionstatus}}
+        <div class="toc-action-block">
+            <a class="btn btn-primary cta-action-btn" href="javascript:void(0);" data-actionid="{{#buttonid}}{{buttonid}}{{/buttonid}}">
+                {{#buttontext}}
+                    {{buttontext}}
+                {{/buttontext}}
+            </a>
+        </div>
+        {{/actionstatus}}
+    </div>
+</div>
