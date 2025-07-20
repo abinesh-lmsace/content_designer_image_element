@@ -177,7 +177,7 @@ class element extends \mod_contentdesigner\elements {
             $activeclass = $active ? 'active' : '';
             $html .= html_writer::tag('div', $img, [
                 'class' => "image-container carousel-item $activeclass",
-                'data-modal' => 'lightbox',
+                'data-modal' => $data->lightbox ? 'lightbox' : '',
                 'data-modal-title' => $data->caption ?? '',
                 'data-modal-content' => $img,
             ]);
@@ -198,13 +198,13 @@ class element extends \mod_contentdesigner\elements {
                 ['class' => 'carousel-control-next', 'role' => 'button', 'data-slide' => 'next']);
         }
 
-        if (!empty($data->caption)) {
-            $html .= html_writer::tag('div', $data->caption, ['class' => 'element-image-caption']);
-        }
-
         $html .= html_writer::end_div();
 
-        return $html;
+        if (!empty($data->caption)) {
+            $html .= html_writer::tag('div', format_text($data->caption, FORMAT_HTML), ['class' => 'element-image-caption']);
+        }
+
+        return html_writer::div($html, 'contentdesigner-element element-image');
     }
 
     /**
@@ -245,7 +245,6 @@ class element extends \mod_contentdesigner\elements {
                 $formdata->instance, ['subdirs' => 0, 'maxfiles' => 1]);
             $formdata->contentimages = $draftitemid;
         }
-
         return $formdata;
     }
 }

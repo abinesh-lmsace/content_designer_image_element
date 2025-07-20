@@ -270,6 +270,7 @@ abstract class elements {
      * @param stdclas $data Submitted moodle_form data.
      */
     public function save_areafiles($data) {
+
         if (isset($data->bgimage)) {
             file_save_draft_area_files($data->bgimage, $data->contextid, 'mod_contentdesigner',
                 $data->elementshortname.'elementbg', $data->instance
@@ -442,6 +443,7 @@ abstract class elements {
      */
     public function title_editable($instance) {
         global $OUTPUT;
+
         $title = $instance->title ?: $this->info()->name;
         $name = 'instance_title['.$this->shortname.']['.$instance->id.']';
         // Todo: Need to implement capability in place of true 4th param.
@@ -644,7 +646,10 @@ abstract class elements {
         global $DB;
 
         try {
+
             $transaction = $DB->start_delegated_transaction();
+
+            $this->prepare_standard_file_editor($data);
 
             $instanceid = $this->update_instance($data);
             // Setup instanceid if the elment is not inserted before.

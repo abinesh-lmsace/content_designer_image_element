@@ -434,7 +434,7 @@ class editor {
         $files = get_file_storage()->get_area_files(
             $context->id, $component, $filearea, $itemid, 'itemid, filepath, filename', false);
         if (empty($files) ) {
-            return '';
+            return $multiple ? [] : '';
         }
 
         if ($multiple) {
@@ -587,6 +587,7 @@ class editor {
      */
     public function duplicate($id, $element, $newchapterid = 0) {
         global $DB;
+
         $tablename = 'cdelement_'.$element;
         $context = \context_module::instance($this->cm->id);
         $elementobj = self::get_element($element, $this->cm->id);
