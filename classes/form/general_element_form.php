@@ -112,13 +112,10 @@ class general_element_form extends \moodleform {
         ]);
         $mform->setType('description_editor', PARAM_RAW);
         $mform->addHelpButton('description_editor', 'elementdescription', 'mod_contentdesigner');
-        // $mform->setDefault('description_editor', ['text' => $defaultdesc ?: '', 'format' => FORMAT_HTML]);
 
         // Show description for General element.
         $mform->addElement('advcheckbox', 'showdescription', get_string('showdescription', 'mod_contentdesigner'));
         $mform->addHelpButton('showdescription', 'showdescription', 'mod_contentdesigner');
-        // $defaultshowdesc = get_config('mod_contentdesigner', 'showdescription');
-        // $mform->setDefault('showdescription', $defaultshowdesc ?: 0);
 
         // Visibility for General element.
         $visibleoptions = [

@@ -25,8 +25,8 @@ Feature: Verify the content designer global search support
       | course      | C1                           |
     And I log out
 
-@javascript
-Scenario: Contentdesigner: Search: Search basic activity info
+  @javascript
+  Scenario: Contentdesigner: Search: Search basic activity info
     Given I log in as "admin"
     And I update the global search index
     And I search for "Demo content" using the header global search box
@@ -43,8 +43,3 @@ Scenario: Contentdesigner: Search: Search basic activity info
     Then I log in as "student2"
     And I search for "Demo content" using the header global search box
     And I should not see "Demo content" in the ".search-results" "css_element"
-
-
-
-
-

@@ -24,7 +24,7 @@
     right: 10px;
     background: #fff;
     color: #ccc;
-    padding: 0px;
+    padding: 0;
     border: 1px solid #ccc;
     z-index: 1;
 }
@@ -34,5 +34,5 @@
 }
 
 .modal-lightbox .modal-body {
-    padding: 0px;
+    padding: 0;
 }

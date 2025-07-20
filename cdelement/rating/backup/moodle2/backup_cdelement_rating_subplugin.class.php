@@ -41,7 +41,7 @@ class backup_cdelement_rating_subplugin extends backup_subplugin {
 
         $subpluginwrapper = new backup_nested_element($this->get_recommended_name());
         $subpluginelement = new backup_nested_element('cdelement_rating', ['id'], [
-            'contentdesignerid', 'title', 'visible', 'scale', 'numericcount', 'description',
+            'contentdesignerid', 'title', 'visible', 'scale', 'numericcount', 'content',
             'changerating', 'variables', 'label', 'resulttype', 'mandatory', 'timecreated', 'timemodified',
         ]);
 

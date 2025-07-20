@@ -31,6 +31,7 @@ require_once($CFG->dirroot . '/mod/contentdesigner/lib.php');
 use html_writer;
 use moodle_url;
 use cdelement_outro\element as outro;
+
 /**
  * Mod contnet designer editor class.
  */
@@ -428,7 +429,7 @@ class editor {
      * @param bool $multiple If true then returns array of file urls, else returns single file url.
      * @return string|array File Path of the given fileareas, If not false.
      */
-    public function get_element_areafiles($filearea, $itemid=0, $component='mod_contentdesigner', $context=null, bool $multiple=false) {
+    public function get_element_areafiles($filearea, $itemid=0, $component='mod_contentdesigner', $context=null, $multiple=false) {
         $context = ($context === null) ? \context_module::instance($this->cm->id) : $context;
         $files = get_file_storage()->get_area_files(
             $context->id, $component, $filearea, $itemid, 'itemid, filepath, filename', false);

@@ -24,8 +24,6 @@
 
 namespace mod_contentdesigner\search;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Search area for mod_contentdesigner activities.
  */

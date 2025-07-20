@@ -110,7 +110,8 @@ class element extends \mod_contentdesigner\elements {
     public function element_form(&$mform, $formobj) {
 
         $editoroptions = $this->editor_options($formobj->_customdata['context']);
-        $mform->addElement('filemanager', 'contentimages', get_string('contentimages', 'mod_contentdesigner'), null, $editoroptions);
+        $mform->addElement('filemanager', 'contentimages',
+            get_string('contentimages', 'mod_contentdesigner'), null, $editoroptions);
         $mform->addRule('contentimages', null, 'required');
         $mform->addHelpButton('contentimages', 'contentimages', 'mod_contentdesigner');
 
@@ -139,7 +140,8 @@ class element extends \mod_contentdesigner\elements {
         }
 
         $context = $this->get_context();
-        $files = editor::get_editor($data->cmid)->get_element_areafiles('cdelement_image_contentimages', $data->id, 'mod_contentdesigner', $context, true);
+        $files = editor::get_editor($data->cmid)
+            ->get_element_areafiles('cdelement_image_contentimages', $data->id, 'mod_contentdesigner', $context, true);
 
         $href = 'element-image-' . $data->id;
         $html = html_writer::start_div('element-image carousel slide', ['data-ride' => 'carousel', 'id' => $href, 'data-interval' => 'false']);
@@ -183,11 +185,17 @@ class element extends \mod_contentdesigner\elements {
         }
         $html .= html_writer::end_div();
 
-        $prev = html_writer::tag('span', '', ['class' => 'carousel-control-prev-icon', 'aria-hidden' => 'true']);
-        $next = html_writer::tag('span', '', ['class' => 'carousel-control-next-icon', 'aria-hidden' => 'true']);
+        // Carousel navigation controls.
+        // Only show if there are multiple images.
+        if (count($files) > 1) {
+            $prev = html_writer::tag('span', '', ['class' => 'carousel-control-prev-icon', 'aria-hidden' => 'true']);
+            $next = html_writer::tag('span', '', ['class' => 'carousel-control-next-icon', 'aria-hidden' => 'true']);
 
-        $html .= html_writer::link("#$href", $prev, ['class' => 'carousel-control-prev', 'role' => 'button', 'data-slide' => 'prev']);
-        $html .= html_writer::link("#$href", $next, ['class' => 'carousel-control-next', 'role' => 'button', 'data-slide' => 'next']);
+            $html .= html_writer::link("#$href", $prev,
+                ['class' => 'carousel-control-prev', 'role' => 'button', 'data-slide' => 'prev']);
+            $html .= html_writer::link("#$href", $next,
+                ['class' => 'carousel-control-next', 'role' => 'button', 'data-slide' => 'next']);
+        }
 
         if (!empty($data->caption)) {
             $html .= html_writer::tag('div', $data->caption, ['class' => 'element-image-caption']);
@@ -207,7 +215,6 @@ class element extends \mod_contentdesigner\elements {
         global $PAGE;
         $PAGE->requires->js_call_amd('cdelement_image/element', 'init', []);
     }
-
 
     /**
      * Save the area files data after the element instance moodle_form submittted.

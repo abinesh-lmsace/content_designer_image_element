@@ -447,7 +447,7 @@ abstract class elements {
         $title = $instance->title ?: $this->info()->name;
         $name = 'instance_title['.$this->shortname.']['.$instance->id.']';
         // Todo: Need to implement capability in place of true 4th param.
-        $tmpl = new \core\output\inplace_editable('mod_contentdesigner', $name, $this->elementid.$instance->id,
+        $tmpl = new \core\output\inplace_editable('mod_contentdesigner', $name, $this->elementid . $instance->id,
             true, format_string($title), $title, get_string('titleeditable', 'mod_contentdesigner'),
             get_string('newvalue', 'mod_contentdesigner') . format_string($title));
 
@@ -463,7 +463,9 @@ abstract class elements {
      */
     public static function insertelement(string $shortname) {
         global $DB;
+
         $record = ['shortname' => $shortname, 'timemodified' => time()];
+
         if (!$DB->record_exists('contentdesigner_elements', ['shortname' => $shortname])) {
             return $DB->insert_record('contentdesigner_elements', $record);
         }

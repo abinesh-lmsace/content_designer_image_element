@@ -16,8 +16,8 @@
 /**
  * Lightbox modal.
  *
- * @module     core/local/modal/lightbox
- * @copyright  2020 Andrew Nicols <andrew@nicols.co.uk>
+ * @module     cdelement_image/local/modal/lightbox
+ * @copyright  2025 bdecent gmbh <https://bdecent.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

@@ -146,7 +146,6 @@ class elements extends \core_search\base_mod {
      * Fetch the file areas from the elements. Fetch the fileareas and concat the element component name with filearea.
      * Use this function and define the fileareas Which is uses the mod_contentdesigner as the component for storing the files.
      *
-     * @param int $cmid course module id
      * @return array List of filearea.
      */
     public static function get_elements_search_areas() {

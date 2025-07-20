@@ -31,6 +31,7 @@ use stdClass;
 use question_engine;
 
 defined('MOODLE_INTERNAL') || die();
+
 require_once($CFG->dirroot . '/mod/contentdesigner/lib.php');
 
 /**

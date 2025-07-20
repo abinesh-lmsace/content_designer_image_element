@@ -357,10 +357,11 @@ class element extends \mod_contentdesigner\elements {
                          ? true : false,
                     'copyurl' => $copyurl,
                     'learningtools' => $learningtools, // Add the learning tools flag.
-                    // 'hasbookmarkcapability' => has_capability('ltool/bookmarks:createbookmarks', $context),
-                    // 'hasnotecapability' => has_capability('ltool/note:createnote', $context),
+                    'hasbookmarkcapability' => (!empty($chapter->learningtools))
+                        ? has_capability('ltool/bookmarks:createbookmarks', $context) : false,
+                    'hasnotecapability' => (!empty($chapter->learningtools))
+                        ? has_capability('ltool/note:createnote', $context) : false,
                 ];
-
 
                 // Prevent the next chapters when user needs to complete any of activities.
                 if ($prevent || $chapterprevent) {

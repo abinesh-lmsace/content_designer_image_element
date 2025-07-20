@@ -28,7 +28,7 @@ require_once(__DIR__.'/lib.php');
 require_once(__DIR__.'/locallib.php');
 
 $id = required_param('id', PARAM_INT);    // Course Module ID.
-$action = optional_param('action', '', PARAM_ALPHA); // Action parameter
+$action = optional_param('action', '', PARAM_ALPHA); // Action parameter.
 
 if (!$cm = get_coursemodule_from_id('contentdesigner', $id)) {
     throw new moodle_exception('invalidcoursemodule');
@@ -57,6 +57,5 @@ contentdesigner_view($data, $course, $cm, $context);
 
 $PAGE->requires->js_call_amd('mod_contentdesigner/elements', 'animateElements', []);
 
-// Handle action parameter and display appropriate content
-$contentdesigner_instance = new \mod_contentdesigner\content_display($contentdesigner, $cm, $course, $context);
-$contentdesigner_instance->view($action);
+$contentdesignerinstance = new \mod_contentdesigner\content_display($contentdesigner, $cm, $course, $context);
+$contentdesignerinstance->view($action);

@@ -15,11 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Element plugin "Heading" - string file.
+ * Element plugin "Image" - string file.
  *
- * @package   cdelement_heading
- * @copyright bdecent GmbH 2021
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    cdelement_image
+ * @copyright  2025 bdecent gmbh <https://bdecent.de>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
  defined("MOODLE_INTERNAL") || die();

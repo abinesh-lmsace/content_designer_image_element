@@ -23,8 +23,8 @@ Feature: Check content designer image element settings
       | intro    | Contentdesigner Description |
       | course   | C1                          |
     And I log out
-    
-	Scenario: Add a single image element with caption and disabled lightbox
+
+	Scenario: CDElement: Image: Single image with caption and disabled lightbox
 		Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
@@ -42,8 +42,8 @@ Feature: Check content designer image element settings
     And "//img[contains(@class, 'element-image-img') and @data-lightbox='image-gallery']" "xpath_element" should not exist
     And "//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element" should exist
     And I should see "E-learning Caption" in the ".element-image-caption" "css_element"
-    
-  Scenario: Add a single image element with caption and enable lightbox
+
+  Scenario: CDElement: Image: Single image with caption and lightbox
     Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
@@ -64,7 +64,7 @@ Feature: Check content designer image element settings
     And I click on "//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element"
     And "//div[contains(@class, 'modal') and contains(@class, 'moodle-has-zindex') and contains(@class, 'show')]//div[contains(@class, 'modal-lightbox')]//div[contains(@class, 'modal-content')]//div[contains(@class, 'modal-body')]//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element" should exist
 
-  Scenario: Add a multiple image element with caption and disabled lightbox
+  Scenario: CDElement: Image: Multiple images with caption and disabled lightbox
 		Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
@@ -91,7 +91,7 @@ Feature: Check content designer image element settings
     And "//div[contains(@class, 'image-container') and contains(@class, 'carousel-item') and contains(@class, 'active')]//img[contains(@class, 'element-image-img') and contains(@src, 'boy-and-book.jpg')]" "xpath_element" should not exist
     And "//div[contains(@class, 'image-container') and contains(@class, 'carousel-item') and contains(@class, 'active')]//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element" should exist
 
-Scenario: Add a multiple image element with caption and enabled lightbox
+  Scenario: CDElement: Image: Multiple images with caption and lightbox enabled
 		Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
@@ -123,7 +123,7 @@ Scenario: Add a multiple image element with caption and enabled lightbox
     And I click on "//img[contains(@class, 'element-image-img') and contains(@src, 'lms-schools.jpg')]" "xpath_element"
     And "//div[contains(@class, 'modal') and contains(@class, 'moodle-has-zindex') and contains(@class, 'show')]//div[contains(@class, 'modal-lightbox')]//div[contains(@class, 'modal-content')]//div[contains(@class, 'modal-body')]//img[contains(@class, 'element-image-img') and contains(@src, 'lms-schools.jpg')]" "xpath_element" should exist
 
-  Scenario: Add a single image element with caption and disable lightbox enabble popup format
+  Scenario: CDElement: Image: Single image in popup format
     Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
@@ -148,8 +148,8 @@ Scenario: Add a multiple image element with caption and enabled lightbox
     And "//img[contains(@class, 'element-image-img') and @data-lightbox='image-gallery']" "xpath_element" should not exist
     And "//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element" should exist
     And I should see "E-learning Caption" in the ".element-image-caption" "css_element"
-    
-  Scenario: Add a single image element with caption and enable lightbox with popup format
+
+  Scenario: CDElement: Image: Single image in popup format with lightbox
     Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
@@ -176,8 +176,8 @@ Scenario: Add a multiple image element with caption and enabled lightbox
     And I should see "E-learning Caption" in the ".element-image-caption" "css_element"
     And I click on "//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element"
     And "//div[contains(@class, 'modal') and contains(@class, 'moodle-has-zindex') and contains(@class, 'show')]//div[contains(@class, 'image-container')]//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element" should exist
-  
-  Scenario: Add a multiple image element with caption and disable lightbox with popup format
+
+  Scenario: CDElement: Image: Multiple images in popup format without lightbox
     Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
@@ -205,8 +205,7 @@ Scenario: Add a multiple image element with caption and enabled lightbox
     And "//div[contains(@class, 'image-container') and contains(@class, 'carousel-item') and contains(@class, 'active')]//img[contains(@class, 'element-image-img') and contains(@src, 'boy-and-book.jpg')]" "xpath_element" should not exist
     And "//div[contains(@class, 'image-container') and contains(@class, 'carousel-item') and contains(@class, 'active')]//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element" should exist
 
-
-  Scenario: Add a multiple image element with caption and enabled lightbox with popup format
+  Scenario: CDElement: Image: Multiple images in popup format with lightbox
     Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
@@ -224,12 +223,10 @@ Scenario: Add a multiple image element with caption and enabled lightbox
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I click on "Demo content" "link" in the "General" "section"
-    
     And "//img[contains(@class, 'element-image-img') and @data-lightbox='image-gallery']" "xpath_element" should exist
     And "//img[contains(@class, 'element-image-img') and contains(@src, 'boy-and-book.jpg')]" "xpath_element" should exist
     And "//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element" should exist
     And I should see "E-learning Caption" in the ".element-image-caption" "css_element"
-
     Then "//ol[contains(@class, 'carousel-indicators')]/li[contains(@class, 'carousel-indicator')]" "xpath_element" should exist 3 times
     And "//div[contains(@class, 'image-container') and contains(@class, 'carousel-item') and contains(@class, 'active')]//img[contains(@class, 'element-image-img') and contains(@src, 'boy-and-book.jpg')]" "xpath_element" should exist
     And I click on ".carousel-control-next" "css_element"

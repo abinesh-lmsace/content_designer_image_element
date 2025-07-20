@@ -302,7 +302,7 @@ class content_display {
                 'generalbox mod_introbox', 'contentdesignerintro');
         }
 
-        // Show attempt form
+        // Show attempt form.
         $content .= \html_writer::start_tag('form', [
             'id' => 'attempt-form',
             'method' => 'post',
