@@ -25,18 +25,18 @@ Feature: Check content designer image element settings
     And I log out
 
   Scenario: CDElement: Image: Single image with caption and disabled lightbox
-		Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
+    Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
     And I click on ".elements-list li[data-element=image]" "css_element" in the ".modal-body" "css_element"
-		And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
-		And I set the following fields to these values:
-		| Caption          | E-learning Caption        |
-		| Show in lightbox | No                        |
-		| Title            | Image element Title       |
-		| Description      | Image element Description |
-		| showdescription  | 1                         |
-		And I press "Create element"
+    And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
+    And I set the following fields to these values:
+    | Caption          | E-learning Caption        |
+    | Show in lightbox | No                        |
+    | Title            | Image element Title       |
+    | Description      | Image element Description |
+    | showdescription  | 1                         |
+    And I press "Create element"
     And I log out
     And I am on the "Demo content" "contentdesigner activity" page logged in as student1
     And "//img[contains(@class, 'element-image-img') and @data-lightbox='image-gallery']" "xpath_element" should not exist
@@ -48,14 +48,14 @@ Feature: Check content designer image element settings
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
     And I click on ".elements-list li[data-element=image]" "css_element" in the ".modal-body" "css_element"
-		And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
-		And I set the following fields to these values:
-		| Caption          | E-learning Caption        |
-		| Show in lightbox | Yes                       |
-		| Title            | Image element Title       |
-		| Description      | Image element Description |
-		| showdescription  | 1                         |
-		And I press "Create element"
+    And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
+    And I set the following fields to these values:
+    | Caption          | E-learning Caption        |
+    | Show in lightbox | Yes                       |
+    | Title            | Image element Title       |
+    | Description      | Image element Description |
+    | showdescription  | 1                         |
+    And I press "Create element"
     And I log out
     And I am on the "Demo content" "contentdesigner activity" page logged in as student1
     And "//img[contains(@class, 'element-image-img') and @data-lightbox='image-gallery']" "xpath_element" should exist
@@ -65,20 +65,20 @@ Feature: Check content designer image element settings
     And "//div[contains(@class, 'modal') and contains(@class, 'moodle-has-zindex') and contains(@class, 'show')]//div[contains(@class, 'modal-lightbox')]//div[contains(@class, 'modal-content')]//div[contains(@class, 'modal-body')]//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element" should exist
 
   Scenario: CDElement: Image: Multiple images with caption and disabled lightbox
-		Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
+    Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
     And I click on ".elements-list li[data-element=image]" "css_element" in the ".modal-body" "css_element"
-		And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
+    And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
     And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/boy-and-book.jpg" file to "Images" filemanager
     And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/lms-schools.jpg" file to "Images" filemanager
-		And I set the following fields to these values:
-		| Caption          | E-learning Caption        |
-		| Show in lightbox | No                        |
-		| Title            | Image element Title       |
-		| Description      | Image element Description |
-		| showdescription  | 1                         |
-		And I press "Create element"
+    And I set the following fields to these values:
+    | Caption          | E-learning Caption        |
+    | Show in lightbox | No                        |
+    | Title            | Image element Title       |
+    | Description      | Image element Description |
+    | showdescription  | 1                         |
+    And I press "Create element"
     And I log out
     And I am on the "Demo content" "contentdesigner activity" page logged in as student1
     And "//img[contains(@class, 'element-image-img') and @data-lightbox='image-gallery']" "xpath_element" should not exist
@@ -92,20 +92,20 @@ Feature: Check content designer image element settings
     And "//div[contains(@class, 'image-container') and contains(@class, 'carousel-item') and contains(@class, 'active')]//img[contains(@class, 'element-image-img') and contains(@src, 'elearning-course.jpg')]" "xpath_element" should exist
 
   Scenario: CDElement: Image: Multiple images with caption and lightbox enabled
-		Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
+    Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
     And I click on ".elements-list li[data-element=image]" "css_element" in the ".modal-body" "css_element"
-		And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
+    And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
     And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/boy-and-book.jpg" file to "Images" filemanager
     And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/lms-schools.jpg" file to "Images" filemanager
-		And I set the following fields to these values:
-		| Caption          | E-learning Caption        |
-		| Show in lightbox | Yes                       |
-		| Title            | Image element Title       |
-		| Description      | Image element Description |
-		| showdescription  | 1                         |
-		And I press "Create element"
+    And I set the following fields to these values:
+    | Caption          | E-learning Caption        |
+    | Show in lightbox | Yes                       |
+    | Title            | Image element Title       |
+    | Description      | Image element Description |
+    | showdescription  | 1                         |
+    And I press "Create element"
     And I log out
     And I am on the "Demo content" "contentdesigner activity" page logged in as student1
     And "//img[contains(@class, 'element-image-img') and @data-lightbox='image-gallery']" "xpath_element" should exist
@@ -128,14 +128,14 @@ Feature: Check content designer image element settings
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
     And I click on ".elements-list li[data-element=image]" "css_element" in the ".modal-body" "css_element"
-		And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
-		And I set the following fields to these values:
-		| Caption          | E-learning Caption        |
-		| Show in lightbox | No                        |
-		| Title            | Image element Title       |
-		| Description      | Image element Description |
-		| showdescription  | 1                         |
-		And I press "Create element"
+    And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
+    And I set the following fields to these values:
+    | Caption          | E-learning Caption        |
+    | Show in lightbox | No                        |
+    | Title            | Image element Title       |
+    | Description      | Image element Description |
+    | showdescription  | 1                         |
+    And I press "Create element"
     And I am on the "Course 1" course page
     And I navigate to "Settings" in current page administration
     And I expand all fieldsets
@@ -154,14 +154,14 @@ Feature: Check content designer image element settings
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
     And I click on ".elements-list li[data-element=image]" "css_element" in the ".modal-body" "css_element"
-		And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
-		And I set the following fields to these values:
-		| Caption          | E-learning Caption        |
-		| Show in lightbox | Yes                       |
-		| Title            | Image element Title       |
-		| Description      | Image element Description |
-		| showdescription  | 1                         |
-		And I press "Create element"
+    And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
+    And I set the following fields to these values:
+    | Caption          | E-learning Caption        |
+    | Show in lightbox | Yes                       |
+    | Title            | Image element Title       |
+    | Description      | Image element Description |
+    | showdescription  | 1                         |
+    And I press "Create element"
     And I am on the "Course 1" course page
     And I navigate to "Settings" in current page administration
     And I expand all fieldsets
@@ -182,16 +182,16 @@ Feature: Check content designer image element settings
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
     And I click on ".elements-list li[data-element=image]" "css_element" in the ".modal-body" "css_element"
-		And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
+    And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
     And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/boy-and-book.jpg" file to "Images" filemanager
     And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/lms-schools.jpg" file to "Images" filemanager
-		And I set the following fields to these values:
-		| Caption          | E-learning Caption        |
-		| Show in lightbox | No                        |
-		| Title            | Image element Title       |
-		| Description      | Image element Description |
-		| showdescription  | 1                         |
-		And I press "Create element"
+    And I set the following fields to these values:
+    | Caption          | E-learning Caption        |
+    | Show in lightbox | No                        |
+    | Title            | Image element Title       |
+    | Description      | Image element Description |
+    | showdescription  | 1                         |
+    And I press "Create element"
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I click on "Demo content" "link" in the "General" "section"
@@ -210,16 +210,16 @@ Feature: Check content designer image element settings
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
     And I click on ".elements-list li[data-element=image]" "css_element" in the ".modal-body" "css_element"
-		And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
+    And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/elearning-course.jpg" file to "Images" filemanager
     And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/boy-and-book.jpg" file to "Images" filemanager
     And I upload "/mod/contentdesigner/cdelement/image/tests/fixtures/lms-schools.jpg" file to "Images" filemanager
-		And I set the following fields to these values:
-		| Caption          | E-learning Caption        |
-		| Show in lightbox | Yes                       |
-		| Title            | Image element Title       |
-		| Description      | Image element Description |
-		| showdescription  | 1                         |
-		And I press "Create element"
+    And I set the following fields to these values:
+    | Caption          | E-learning Caption        |
+    | Show in lightbox | Yes                       |
+    | Title            | Image element Title       |
+    | Description      | Image element Description |
+    | showdescription  | 1                         |
+    And I press "Create element"
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I click on "Demo content" "link" in the "General" "section"

@@ -27,7 +27,7 @@ Feature: Check content designer richtext element settings
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"
     And I click on ".elements-list li[data-element=richtext]" "css_element" in the ".modal-body" "css_element"
-    And I set the field "Rich Text" to "<b style='color: #7c7cff; background-color: #ffffff;'>Hard to read</b>"
+    And I set the field "Rich Text Content" to "<b style='color: #7c7cff; background-color: #ffffff;'>Hard to read</b>"
     And I expand all fieldsets
     And I set the field "Title" to "Richtext 01"
     And I click on "Create element" "button"

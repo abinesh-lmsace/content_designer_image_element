@@ -649,8 +649,6 @@ abstract class elements {
 
             $transaction = $DB->start_delegated_transaction();
 
-            $this->prepare_standard_file_editor($data);
-
             $instanceid = $this->update_instance($data);
             // Setup instanceid if the elment is not inserted before.
             $data->instance = ($data->instanceid) ?: $instanceid;

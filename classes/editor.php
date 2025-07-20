@@ -608,6 +608,8 @@ class editor {
             $record->elementshortname = $elementobj->shortname;
             $record->timecreated = time();
 
+            $elementobj->prepare_standard_file_editor($record);
+
             $elementobj->prepare_duplicatedata($record);
 
             $elementobj->update_element($record);

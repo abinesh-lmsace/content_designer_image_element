@@ -127,8 +127,8 @@ class element extends \mod_contentdesigner\elements {
         $formdata = clone $data;
         $formdata->contentformat = $formdata->content_editor['format'];
         $formdata->content = $formdata->content_editor['text'];
+        $formdata->timemodified = time();
         if ($formdata->instanceid == false) {
-            $formdata->timemodified = time();
             $formdata->timecreated = time();
             return $DB->insert_record($this->tablename, $formdata);
         } else {
