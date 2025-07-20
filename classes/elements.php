@@ -300,8 +300,6 @@ abstract class elements {
 
             // Description editor.
             $editoroptions = $this->editor_options($this->context);
-            /* $formdata->descriptionformat = FORMAT_HTML;
-            $formdata->description = '';             */
             file_prepare_standard_editor(
                 $formdata, 'description', $editoroptions, $this->context, 'mod_contentdesigner',
                 $this->element_shortname().'description', $formdata->instance

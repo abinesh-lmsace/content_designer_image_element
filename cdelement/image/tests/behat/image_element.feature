@@ -24,7 +24,7 @@ Feature: Check content designer image element settings
       | course   | C1                          |
     And I log out
 
-	Scenario: CDElement: Image: Single image with caption and disabled lightbox
+  Scenario: CDElement: Image: Single image with caption and disabled lightbox
 		Given I am on the "Demo content" "contentdesigner activity" page logged in as teacher1
     And I click on "Content editor" "link"
     And I click on ".contentdesigner-addelement .fa-plus" "css_element"

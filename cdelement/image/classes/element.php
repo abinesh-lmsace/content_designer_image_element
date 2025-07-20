@@ -144,7 +144,8 @@ class element extends \mod_contentdesigner\elements {
             ->get_element_areafiles('cdelement_image_contentimages', $data->id, 'mod_contentdesigner', $context, true);
 
         $href = 'element-image-' . $data->id;
-        $html = html_writer::start_div('element-image carousel slide', ['data-ride' => 'carousel', 'id' => $href, 'data-interval' => 'false']);
+        $html = html_writer::start_div('element-image carousel slide',
+            ['data-ride' => 'carousel', 'id' => $href, 'data-interval' => 'false']);
 
         // Carousel indicators.
         if (count($files) > 1) {
