@@ -239,13 +239,15 @@ class variables extends base {
         $filters = [];
         $conditions = [];
 
+        $alias = $this->get_table_alias('cdelement_rating_variables');
+
         // Variant filter.
         $typefilter = (new filter(
             select::class,
             'type',
             new lang_string('vartype', 'mod_contentdesigner'),
             $this->get_entity_name(),
-            'type'
+            "{$alias}.type"
         ))
             ->add_joins($this->get_joins())
             ->set_options([
@@ -260,7 +262,7 @@ class variables extends base {
             'fullname',
             new lang_string('varfullname', 'mod_contentdesigner'),
             $this->get_entity_name(),
-            'fullname'
+            "{$alias}.fullname"
         ));
 
         $filters[] = $fullnamefilter;
@@ -271,7 +273,7 @@ class variables extends base {
             'shortname',
             new lang_string('varshortname', 'mod_contentdesigner'),
             $this->get_entity_name(),
-            'shortname'
+            "{$alias}.shortname"
         ));
 
         $filters[] = $shortnamefilter;

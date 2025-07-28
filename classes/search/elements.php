@@ -161,7 +161,12 @@ class elements extends \core_search\base_mod {
             $elementobj = editor::get_element($plugin, null);
             $areafiles = (method_exists($elementobj, 'search_area_list')) ? $elementobj->search_area_list() : [];
 
+            // No fileareas defined for this element, use the default table for store the title.
             if (empty($areafiles)) {
+                $alias = $tablealias . $i++;
+                $tablename = $prefix . 'cdelement_' . $plugin;
+                $titlesql[] = " WHEN ce.shortname = '{$plugin}' THEN {$alias}.title ";
+                $joinsql[] = " LEFT JOIN {$tablename} AS {$alias} ON {$alias}.id = co.instance AND ce.shortname='{$plugin}' ";
                 continue;
             }
 
@@ -172,7 +177,6 @@ class elements extends \core_search\base_mod {
                 $format = explode(',', $filearea);
 
                 $titlesql[] = " WHEN ce.shortname = '{$plugin}' THEN {$alias}.title ";
-
                 $contentsql[] = " WHEN ce.shortname = '{$plugin}' THEN {$alias}.{$format[0]} ";
                 if (!empty($format[1])) {
                     $contentformatsql[] = " WHEN ce.shortname = '{$plugin}' THEN {$alias}.{$format[1]} ";

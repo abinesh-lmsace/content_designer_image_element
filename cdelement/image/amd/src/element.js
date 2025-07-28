@@ -34,8 +34,6 @@ import ModalLightBox from 'cdelement_image/local/modal/lightbox';
 
 const displayLightBox = async(body) => {
 
-    console.log(body);
-
     return ModalLightBox.create({
         body,
         removeOnClose: true,
@@ -46,13 +44,14 @@ const displayLightBox = async(body) => {
     });
 };
 
-export const init = () => {
+export const init = (instanceID) => {
 
-    document.addEventListener('click', function(e) {
+    const selector = `[data-instanceid="${instanceID}"][data-elementshortname="image"]`;
+    document.querySelector(selector)?.addEventListener('click', function(e) {
         const lightBox = e.target.closest('[data-modal="lightbox"]');
         if (lightBox) {
             e.preventDefault();
             displayLightBox(lightBox.dataset?.modalContent);
         }
-    })
-}
+    });
+};

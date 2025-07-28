@@ -320,6 +320,7 @@ class element extends \mod_contentdesigner\elements {
                 }
                 $chapter->chaptertitle = $chapter->title;
                 $chapter->title = $this->title_editable($chapter) ?: $this->info()->name;
+
                 list($prevent, $contents, $learningtools) = $this->generate_chapter_content($chapter, $visible, $render);
                 if ($visible && empty($contents) && !$chapter->titlestatus) {
                     continue;
@@ -433,7 +434,7 @@ class element extends \mod_contentdesigner\elements {
         ];
 
         // Check if learning tools should be displayed.
-        if (!empty($chapter->learningtools)) {
+        if (!empty($chapter->learningtools) && cdelement_chapter_has_learningtools()) {
             $context = \context_module::instance($this->cmid);
             $hasbookmarkcapability = has_capability('ltool/bookmarks:createbookmarks', $context);
             $hasnotescapability = has_capability('ltool/note:createnote', $context);
@@ -659,11 +660,12 @@ class element extends \mod_contentdesigner\elements {
 
             $dbman = $DB->get_manager();
             // Deleted the Learningtools bookmarks and notes data.
-            if ($dbman->table_exists('ltool_bookmarks_data')) {
+            if ($dbman->table_exists('ltool_bookmarks_data') && $dbman->field_exists('ltool_bookmarks_data', 'itemid')) {
                 $DB->delete_records('ltool_bookmarks_data', ['itemid' => $instanceid, 'itemtype' => 'chapter']);
             }
 
-            if ($dbman->table_exists('ltool_note_data')) {
+            // Delete the notes data.
+            if ($dbman->table_exists('ltool_note_data') && $dbman->field_exists('ltool_note_data', 'itemid')) {
                 $DB->delete_records('ltool_note_data', ['itemid' => $instanceid, 'itemtype' => 'chapter']);
             }
 
@@ -673,6 +675,7 @@ class element extends \mod_contentdesigner\elements {
                     $element->delete_element($value->instance);
                 }
             }
+
             if ($this->get_instance_options($instanceid)) {
                 // Delete the element general settings.
                 $DB->delete_records('contentdesigner_options', ['element' => $this->element_id(),

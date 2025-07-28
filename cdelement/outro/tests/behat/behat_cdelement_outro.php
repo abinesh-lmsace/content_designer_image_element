@@ -34,6 +34,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class behat_cdelement_outro extends behat_base {
+
     /**
      * Go to editing section layout for specified section number and layout type.
      * You need to be in the course page and on editing mode.

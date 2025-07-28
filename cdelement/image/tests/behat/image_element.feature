@@ -34,8 +34,6 @@ Feature: Check content designer image element settings
     | Caption          | E-learning Caption        |
     | Show in lightbox | No                        |
     | Title            | Image element Title       |
-    | Description      | Image element Description |
-    | showdescription  | 1                         |
     And I press "Create element"
     And I log out
     And I am on the "Demo content" "contentdesigner activity" page logged in as student1
@@ -53,8 +51,6 @@ Feature: Check content designer image element settings
     | Caption          | E-learning Caption        |
     | Show in lightbox | Yes                       |
     | Title            | Image element Title       |
-    | Description      | Image element Description |
-    | showdescription  | 1                         |
     And I press "Create element"
     And I log out
     And I am on the "Demo content" "contentdesigner activity" page logged in as student1
@@ -76,8 +72,6 @@ Feature: Check content designer image element settings
     | Caption          | E-learning Caption        |
     | Show in lightbox | No                        |
     | Title            | Image element Title       |
-    | Description      | Image element Description |
-    | showdescription  | 1                         |
     And I press "Create element"
     And I log out
     And I am on the "Demo content" "contentdesigner activity" page logged in as student1
@@ -103,8 +97,6 @@ Feature: Check content designer image element settings
     | Caption          | E-learning Caption        |
     | Show in lightbox | Yes                       |
     | Title            | Image element Title       |
-    | Description      | Image element Description |
-    | showdescription  | 1                         |
     And I press "Create element"
     And I log out
     And I am on the "Demo content" "contentdesigner activity" page logged in as student1
@@ -133,8 +125,6 @@ Feature: Check content designer image element settings
     | Caption          | E-learning Caption        |
     | Show in lightbox | No                        |
     | Title            | Image element Title       |
-    | Description      | Image element Description |
-    | showdescription  | 1                         |
     And I press "Create element"
     And I am on the "Course 1" course page
     And I navigate to "Settings" in current page administration
@@ -159,8 +149,6 @@ Feature: Check content designer image element settings
     | Caption          | E-learning Caption        |
     | Show in lightbox | Yes                       |
     | Title            | Image element Title       |
-    | Description      | Image element Description |
-    | showdescription  | 1                         |
     And I press "Create element"
     And I am on the "Course 1" course page
     And I navigate to "Settings" in current page administration
@@ -189,8 +177,6 @@ Feature: Check content designer image element settings
     | Caption          | E-learning Caption        |
     | Show in lightbox | No                        |
     | Title            | Image element Title       |
-    | Description      | Image element Description |
-    | showdescription  | 1                         |
     And I press "Create element"
     And I log out
     And I am on the "Course 1" course page logged in as student1
@@ -217,8 +203,6 @@ Feature: Check content designer image element settings
     | Caption          | E-learning Caption        |
     | Show in lightbox | Yes                       |
     | Title            | Image element Title       |
-    | Description      | Image element Description |
-    | showdescription  | 1                         |
     And I press "Create element"
     And I log out
     And I am on the "Course 1" course page logged in as student1

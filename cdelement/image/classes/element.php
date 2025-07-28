@@ -24,7 +24,6 @@
 
 namespace cdelement_image;
 
-use core\output\html_writer;
 use mod_contentdesigner\editor;
 
 /**
@@ -79,7 +78,7 @@ class element extends \mod_contentdesigner\elements {
      * @return string HTML fragment
      */
     public function icon($output) {
-        return $output->pix_icon('e/source_code', get_string('pluginname', 'cdelement_image'));
+        return $output->pix_icon('i/messagecontentimage', get_string('pluginname', 'cdelement_image'));
     }
 
     /**
@@ -134,6 +133,10 @@ class element extends \mod_contentdesigner\elements {
      * @return string HTML
      */
     public function render($data) {
+        global $PAGE;
+
+        // Include the lightbox modal listeners.
+        $PAGE->requires->js_call_amd('cdelement_image/element', 'init', ['instanceid' => $data->id]);
 
         if (!isset($data->id)) {
             return '';
@@ -144,16 +147,16 @@ class element extends \mod_contentdesigner\elements {
             ->get_element_areafiles('cdelement_image_contentimages', $data->id, 'mod_contentdesigner', $context, true);
 
         $href = 'element-image-' . $data->id;
-        $html = html_writer::start_div('element-image carousel slide',
+        $html = \html_writer::start_div('element-image carousel slide',
             ['data-ride' => 'carousel', 'id' => $href, 'data-interval' => 'false']);
 
         // Carousel indicators.
         if (count($files) > 1) {
-            $html .= html_writer::start_tag('ol', ['class' => 'carousel-indicators']);
+            $html .= \html_writer::start_tag('ol', ['class' => 'carousel-indicators']);
             $active = true;
             foreach ($files as $index => $fileurl) {
                 $activeclass = $active ? 'active' : '';
-                $html .= html_writer::tag('li', '', [
+                $html .= \html_writer::tag('li', '', [
                     'class' => "carousel-indicator $activeclass",
                     'data-slide-to' => $index,
                     'data-target' => "#$href",
@@ -161,21 +164,21 @@ class element extends \mod_contentdesigner\elements {
                 ]);
                 $active = false; // Only the first item should be active.
             }
-            $html .= html_writer::end_tag('ol');
+            $html .= \html_writer::end_tag('ol');
         }
 
         // Carousel inner with images.
-        $html .= html_writer::start_div('element-image-content carousel-inner');
+        $html .= \html_writer::start_div('element-image-content carousel-inner');
         $active = true;
         foreach ($files as $fileurl) {
 
-            $img = html_writer::img($fileurl, $data->caption ?? '', [
+            $img = \html_writer::img($fileurl, $data->caption ?? '', [
                 'class' => 'img-fluid element-image-img responsive-img d-block w-100',
                 'data-lightbox' => $data->lightbox ? 'image-gallery' : '',
             ]);
 
             $activeclass = $active ? 'active' : '';
-            $html .= html_writer::tag('div', $img, [
+            $html .= \html_writer::tag('div', $img, [
                 'class' => "image-container carousel-item $activeclass",
                 'data-modal' => $data->lightbox ? 'lightbox' : '',
                 'data-modal-title' => $data->caption ?? '',
@@ -184,37 +187,27 @@ class element extends \mod_contentdesigner\elements {
 
             $active = false; // Only the first item should be active.
         }
-        $html .= html_writer::end_div();
+        $html .= \html_writer::end_div();
 
         // Carousel navigation controls.
         // Only show if there are multiple images.
         if (count($files) > 1) {
-            $prev = html_writer::tag('span', '', ['class' => 'carousel-control-prev-icon', 'aria-hidden' => 'true']);
-            $next = html_writer::tag('span', '', ['class' => 'carousel-control-next-icon', 'aria-hidden' => 'true']);
+            $prev = \html_writer::tag('span', '', ['class' => 'carousel-control-prev-icon', 'aria-hidden' => 'true']);
+            $next = \html_writer::tag('span', '', ['class' => 'carousel-control-next-icon', 'aria-hidden' => 'true']);
 
-            $html .= html_writer::link("#$href", $prev,
+            $html .= \html_writer::link("#$href", $prev,
                 ['class' => 'carousel-control-prev', 'role' => 'button', 'data-slide' => 'prev']);
-            $html .= html_writer::link("#$href", $next,
+            $html .= \html_writer::link("#$href", $next,
                 ['class' => 'carousel-control-next', 'role' => 'button', 'data-slide' => 'next']);
         }
 
-        $html .= html_writer::end_div();
+        $html .= \html_writer::end_div();
 
         if (!empty($data->caption)) {
-            $html .= html_writer::tag('div', format_text($data->caption, FORMAT_HTML), ['class' => 'element-image-caption']);
+            $html .= \html_writer::tag('div', format_text($data->caption, FORMAT_HTML), ['class' => 'element-image-caption']);
         }
 
-        return html_writer::div($html, 'contentdesigner-element element-image');
-    }
-
-    /**
-     * Initiate the element js for the view page.
-     *
-     * @return void
-     */
-    public function initiate_js() {
-        global $PAGE;
-        $PAGE->requires->js_call_amd('cdelement_image/element', 'init', []);
+        return \html_writer::div($html, 'contentdesigner-element element-image');
     }
 
     /**

@@ -55,9 +55,9 @@ class rating extends datasource {
      */
     protected function initialise(): void {
 
+
         // Basic rating entity which is main table in this datasource.
         $ratingelement = new ratingelement();
-
         // List of table alias used here.
         $contentdesigneralias = $ratingelement->get_table_alias('contentdesigner');
         $ratingelementalias = $ratingelement->get_table_alias('cdelement_rating');
@@ -94,12 +94,12 @@ class rating extends datasource {
         $cohortentity = new cohort();
         $cohortentity = $cohortentity->set_table_alias('cohort', 'cht');
         $cohortalias = $cohortentity->get_table_alias('cohort');
-        $cohortjoin = "LEFT JOIN {cohort_members} {$cohortmemalias} ON {$cohortmemalias}.userid = {$responsesalias}.userid
+        $joins['cohort'] = "LEFT JOIN {cohort_members} {$cohortmemalias} ON {$cohortmemalias}.userid = {$responsesalias}.userid
         LEFT JOIN {cohort} {$cohortalias} ON {$cohortalias}.id = {$cohortmemalias}.cohortid";
 
-        $ratingelement->add_join($cohortjoin);
+        $ratingelement->add_join($joins['cohort']);
         $cohortentity->add_join($joins['user']);
-        $this->add_entity($cohortentity->add_join($cohortjoin));
+        $this->add_entity($cohortentity->add_join($joins['cohort']));
 
         // Add core course entity.
         $coursentity = new course();
@@ -111,6 +111,8 @@ class rating extends datasource {
 
         // Add core category entity.
         $categoryentity = new course_category();
+        // Set the table alias for course categories.
+        $categoryentity->set_table_alias('course_categories', 'cc');
         $categoryalias = $categoryentity->get_table_alias('course_categories');
         $joins['category'] = "LEFT JOIN {course_categories} {$categoryalias} ON {$categoryalias}.id = {$coursealias}.category";
         $this->add_entity($categoryentity->add_joins([$joins['course'], $joins['category']]));
@@ -123,7 +125,10 @@ class rating extends datasource {
 
         $stats = new statistics();
         $stats->add_joins($ratingelement->get_joins());
+
         $this->add_entity($stats);
+
+        array_map([$this, 'add_join'], $joins);
 
         if (method_exists($this, 'add_all_from_entities')) {
             $this->add_all_from_entities();

@@ -30,10 +30,11 @@ use core_reportbuilder\local\entities\base;
 use core_reportbuilder\local\report\{column, filter};
 use core_reportbuilder\local\filters\boolean_select;
 use core_reportbuilder\local\filters\date;
-use cdelement_rating\reportbuilder\filters\category as customcategory;
-use cdelement_rating\reportbuilder\filters\cohort as cohort_filter;
+use core_reportbuilder\local\filters\cohort as cohort_filter;
 use core_reportbuilder\local\filters\course_selector;
 use cdelement_rating\reportbuilder\filters\mycohort;
+use core_course\reportbuilder\local\entities\course_category;
+use core_reportbuilder\local\filters\category;
 use cdelement_rating\helper;
 
 /**
@@ -100,6 +101,8 @@ class ratingelement extends base {
     protected function get_all_columns(): array {
 
         $this->set_table_alias('cdelement_rating', 'cdr');
+        $this->set_table_alias('course_categories', 'cc');
+
         $tablealias = $this->get_table_alias('cdelement_rating');
         $contentdesigneralias = $this->get_table_alias('contentdesigner');
 
@@ -320,7 +323,7 @@ class ratingelement extends base {
 
         // Course category filter.
         $categoryfilter = (new filter(
-            customcategory::class,
+            category::class,
             'category',
             new lang_string('categoryselect', 'core_reportbuilder'),
             $this->get_entity_name(),
